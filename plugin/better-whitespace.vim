@@ -129,7 +129,7 @@ endfunction
 function! s:ShouldHighlight()
     " Guess from the filetype if a) not locally decided, b) globally enabled, c) there is enough information
     if get(b:, 'better_whitespace_guess', 1) && g:better_whitespace_enabled == 1
-        let b:better_whitespace_enabled = (empty(&buftype) || &buftype == 'acwrite') && index(g:better_whitespace_filetypes_blacklist, &ft) == -1
+        let b:better_whitespace_enabled = &buftype == 'acwrite' && index(g:better_whitespace_filetypes_blacklist, &ft) == -1
     endif
     return get(b:, 'better_whitespace_enabled', g:better_whitespace_enabled)
 endfunction
